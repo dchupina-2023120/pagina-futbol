@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GOLAZO · Diego Andre Chupina Méndez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="GolazoDi.css">
+</head>
+
+<body class="page-resultados">
+
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+
+      <div class="logo">
+        <div class="logo-dot"></div>
+        GOLAZO
+      </div>
+      <div>
+        Diego Andre Chupina Méndez
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active" onclick="showPage('resultados', this)">⚽ Resultados</a></li>
+        <li><a href="#" onclick="showPage('quienes-somos', this)">👤 Quiénes Somos</a></li>
+        <li><a href="#" onclick="showPage('mision', this)">🎯 Misión &amp; Visión</a></li>
+        <li><a href="#" onclick="showPage('contacto', this)">📬 Contáctenos</a></li>
+      </ul>
+
+      <div class="live-pill">
+        <div class="live-blink"></div>
+        <span id="live-count">0</span>&nbsp;en vivo
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Barra de ligas -->
+  <nav class="league-nav" aria-label="Ligas">
+    <div class="league-nav-inner">
+      <button class="league-btn active" onclick="switchLeague('pl', this)">
+        🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League
+      </button>
+      <button class="league-btn" onclick="switchLeague('laliga', this)">
+        🇪🇸 La Liga
+      </button>
+      <button class="league-btn" onclick="switchLeague('ucl', this)">
+        ⭐ Champions League
+      </button>
+    </div>
+  </nav>
+
+
+  <!--PÁGINA 1: RESULTADOS -->
+  <section id="page-resultados" class="page active">
+    <main class="results-layout" id="main-content"></main>
+  </section>
+
+
+  <!--PÁGINA 2: QUIÉNES SOMOS-->
+  <section id="page-quienes-somos" class="page">
+    <div class="about-page">
+
+      <div>
+        <p class="page-eyebrow">El proyecto</p>
+        <h1 class="page-title">Quiénes <span>Somos</span></h1>
+        <p class="page-subtitle">
+          Conoce al desarrollador detrás de <strong>GOLAZO</strong>, la plataforma
+          de resultados y noticias de fútbol creada como proyecto académico.
+        </p>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Tarjeta del alumno -->
+        <div class="student-card">
+          <img 
+          src="foto.jpg"
+          alt="Diego Andre Chupina Méndez"
+          style="width:100%; height:300px; object-fit:cover;"
+          />
+          <div class="student-info">
+            <div class="student-name">Diego Andre Chupina Méndez</div>
+            <div class="student-tags">
+              <span class="tag">📍 Guatemala</span>
+              <span class="tag">🎓 UMG</span>
+              <span class="tag">⚽ Fútbol</span>
+              <span class="tag">💻 HTML · CSS · JS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Información del proyecto -->
+        <div class="about-content">
+
+          <div class="info-card">
+            <div class="info-card-title">📋 Sobre el proyecto</div>
+            <p>
+              <strong>GOLAZO</strong> es una plataforma web de resultados deportivos desarrollada
+              como proyecto de curso en la <strong>Universidad Mariano Gálvez de Guatemala</strong>.
+              El objetivo es ofrecer a los aficionados del fútbol una experiencia moderna,
+              rápida y accesible para seguir sus ligas y equipos favoritos.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-title">🛠️ Tecnologías utilizadas</div>
+            <p>
+              Esta página fue construida usando <strong>HTML5</strong> para la estructura,
+              <strong>CSS3</strong> con variables personalizadas para el diseño responsivo,
+              y <strong>JavaScript vanilla</strong> para la lógica dinámica. El patrón
+              de desarrollo sigue el principio de <em>"datos → render"</em>, donde toda
+              la información se almacena en objetos JS y se transforma en HTML automáticamente.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-title">🎓 Institución educativa</div>
+            <p>
+              Proyecto desarrollado en la <strong>Universidad Mariano Gálvez de Guatemala (UMG)</strong>,
+              una de las instituciones de educación superior más reconocidas del país,
+              fundada en 1966 y ubicada en la <strong>3a. Avenida 9-00, Zona 2</strong>,
+              Ciudad de Guatemala.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--PÁGINA 3: MISIÓN Y VISIÓN -->
+  <section id="page-mision" class="page">
+    <div class="mv-page">
+
+      <div>
+        <p class="page-eyebrow">Nuestros fundamentos</p>
+        <h1 class="page-title">Misión <span>&amp;</span> Visión</h1>
+        <p class="page-subtitle">
+          Los principios que guían el desarrollo y crecimiento de la plataforma
+          <strong>GOLAZO</strong>.
+        </p>
+      </div>
+
+      <div class="mv-cards">
+
+        <!-- MISIÓN -->
+        <div class="mv-card">
+          <div class="mv-icon-wrap">🎯</div>
+          <div class="mv-card-title">Misión</div>
+          <p class="mv-card-text">
+            Brindar a los aficionados del fútbol información
+            <em>actualizada, clara y rápida</em> sobre resultados, estadísticas
+            y noticias deportivas, ofreciendo una experiencia moderna y accesible
+            para todos los usuarios.
+          </p>
+        </div>
+
+        <!-- VISIÓN -->
+        <div class="mv-card vision-card">
+          <div class="mv-icon-wrap">🔭</div>
+          <div class="mv-card-title">Visión</div>
+          <p class="mv-card-text">
+            Convertirse en una plataforma <em>reconocida por los amantes del fútbol</em>,
+            destacando por su innovación, diseño atractivo y contenido confiable
+            sobre el mundo deportivo.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Valores -->
+      <div class="values-section">
+        <div class="values-title">Nuestros valores</div>
+        <div class="values-grid">
+          <div class="value-chip"><span class="value-emoji">⚡</span><span class="value-name">Rapidez</span></div>
+          <div class="value-chip"><span class="value-emoji">✅</span><span class="value-name">Confiabilidad</span></div>
+          <div class="value-chip"><span class="value-emoji">🎨</span><span class="value-name">Diseño</span></div>
+          <div class="value-chip"><span class="value-emoji">🌐</span><span class="value-name">Accesibilidad</span></div>
+          <div class="value-chip"><span class="value-emoji">🔒</span><span class="value-name">Seguridad</span></div>
+          <div class="value-chip"><span class="value-emoji">💡</span><span class="value-name">Innovación</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--PÁGINA 4: CONTÁCTENOS -->
+  <section id="page-contacto" class="page">
+    <div class="contact-page">
+
+      <div>
+        <p class="page-eyebrow">Estamos aquí</p>
+        <h1 class="page-title">Contác<span>tenos</span></h1>
+        <p class="page-subtitle">
+          Síguenos en las redes sociales oficiales de la
+          <strong>Universidad Mariano Gálvez de Guatemala</strong>
+          o escríbenos directamente.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Columna izquierda: datos + redes -->
+        <div class="contact-info">
+
+          <!-- Datos de la UMG -->
+          <div class="contact-item">
+            <div class="contact-icon-box">📍</div>
+            <div>
+              <div class="contact-label">Dirección UMG</div>
+              <div class="contact-value">
+                3a. Avenida 9-00, Zona 2, Interior Finca El Zapote<br/>
+                Ciudad de Guatemala, Guatemala
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">🌐</div>
+            <div>
+              <div class="contact-label">Sitio web oficial</div>
+              <div class="contact-value">
+                <a href="https://www.umg.edu.gt" target="_blank" rel="noopener">www.umg.edu.gt</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Redes sociales oficiales UMG -->
+          <div>
+            <div class="social-title">Redes sociales oficiales — UMG</div>
+            <div class="social-grid">
+
+              <a class="social-card"
+                 href="https://www.facebook.com/u.marianogalvez/"
+                 target="_blank" rel="noopener"
+                 title="Facebook oficial de la Universidad Mariano Gálvez">
+                <div class="social-logo" style="background:#1877f2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                      <!-- SVG del icono oficial de Instagram.
+                          lo utilize para mostrar el logo de Instagram
+                          dentro de la sección de redes sociales.-->
+                  </svg>
+                </div>
+                <div>
+                  <div class="social-name">Facebook</div>
+                  <div class="social-handle">u.marianogalvez</div>
+                </div>
+              </a>
+
+              <a class="social-card"
+                 href="https://www.instagram.com/marianogalvez/"
+                 target="_blank" rel="noopener"
+                 title="Instagram oficial de la Universidad Mariano Gálvez">
+                <div class="social-logo" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    <!-- SVG del icono oficial de Facebook.
+                    lo utilize para mostrar el logo de Facebook
+                    dentro de la sección de redes sociales.-->
+                  </svg>
+                </div>
+                <div>
+                  <div class="social-name">Instagram</div>
+                  <div class="social-handle">@marianogalvez</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: mapa-->
+        <div class="contact-right">
+          <!-- Mapa de la UMG -->
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.6!2d-90.5133!3d14.6589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3b8e4a4b4c5%3A0x1!2sUniversidad+Mariano+G%C3%A1lvez+de+Guatemala!5e0!3m2!1ses!2sgt!4v1"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación Universidad Mariano Gálvez de Guatemala">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>GOLAZO</strong>
+    <strong>Diego Andre Chupina Méndez</strong> ·
+    <a href="https://www.umg.edu.gt" target="_blank" rel="noopener">Universidad Mariano Gálvez de Guatemala</a>
+    <br/>
+     Y conoceréis la verdad, y la verdad os hará libres
+  </footer>
+  <script>
+
+    const DB = {
+      pl: {
+        name: "Premier League",
+        matches: [
+          { home:"Arsenal",     homeEmoji:"🔴", away:"Man City",    awayEmoji:"🔵", hs:2,    as:1,    status:"FT" },
+          { home:"Liverpool",   homeEmoji:"🔴", away:"Chelsea",     awayEmoji:"🔵", hs:1,    as:1,    status:"FT" },
+          { home:"Aston Villa", homeEmoji:"🟣", away:"Newcastle",   awayEmoji:"⚫", hs:3,    as:0,    status:"LIVE", min:67 },
+          { home:"Man United",  homeEmoji:"🔴", away:"Tottenham",   awayEmoji:"⚪", hs:null, as:null, status:"NS",   time:"18:30" },
+          { home:"Brighton",    homeEmoji:"🔵", away:"Everton",     awayEmoji:"🔵", hs:null, as:null, status:"NS",   time:"21:00" },
+        ],
+        table: [
+          { pos:1,  team:"Man City",      pj:36, g:26, e:5, p:5,  pts:83, form:["W","W","D","W","W"], zone:"cl" },
+          { pos:2,  team:"Arsenal",       pj:36, g:24, e:6, p:6,  pts:78, form:["W","W","W","L","W"], zone:"cl" },
+          { pos:3,  team:"Liverpool",     pj:36, g:22, e:7, p:7,  pts:73, form:["D","W","W","W","D"], zone:"cl" },
+          { pos:4,  team:"Aston Villa",   pj:36, g:20, e:5, p:11, pts:65, form:["W","L","W","W","W"], zone:"cl" },
+          { pos:5,  team:"Tottenham",     pj:36, g:17, e:8, p:11, pts:59, form:["L","W","D","W","L"], zone:"el" },
+          { pos:6,  team:"Chelsea",       pj:36, g:16, e:9, p:11, pts:57, form:["D","D","W","L","D"], zone:"el" },
+          { pos:7,  team:"Newcastle",     pj:36, g:15, e:9, p:12, pts:54, form:["W","W","L","D","W"], zone:"el" },
+          { pos:8,  team:"Man United",    pj:36, g:14, e:6, p:16, pts:48, form:["L","W","L","L","W"], zone:"" },
+          { pos:17, team:"Luton",         pj:36, g:5,  e:8, p:23, pts:23, form:["L","D","L","L","D"], zone:"rel" },
+          { pos:18, team:"Burnley",       pj:36, g:5,  e:7, p:24, pts:22, form:["L","L","L","D","L"], zone:"rel" },
+          { pos:19, team:"Sheffield Utd", pj:36, g:3,  e:5, p:28, pts:14, form:["L","L","L","L","L"], zone:"rel" },
+        ]
+      },
+      laliga: {
+        name: "La Liga",
+        matches: [
+          { home:"Real Madrid", homeEmoji:"⚪", away:"Barcelona",  awayEmoji:"🔵", hs:2,    as:2,    status:"FT" },
+          { home:"Atlético",    homeEmoji:"🔴", away:"Sevilla",    awayEmoji:"⚪", hs:1,    as:0,    status:"FT" },
+          { home:"Girona",      homeEmoji:"🔴", away:"Villarreal", awayEmoji:"🟡", hs:2,    as:1,    status:"LIVE", min:81 },
+          { home:"Valencia",    homeEmoji:"🟠", away:"Betis",      awayEmoji:"🟢", hs:null, as:null, status:"NS",   time:"19:00" },
+          { home:"Osasuna",     homeEmoji:"🔴", away:"Getafe",     awayEmoji:"🔵", hs:null, as:null, status:"NS",   time:"21:30" },
+        ],
+        table: [
+          { pos:1,  team:"Real Madrid", pj:35, g:27, e:5, p:3,  pts:86, form:["W","W","W","D","W"], zone:"cl" },
+          { pos:2,  team:"Barcelona",   pj:35, g:24, e:5, p:6,  pts:77, form:["W","D","W","W","D"], zone:"cl" },
+          { pos:3,  team:"Girona",      pj:35, g:22, e:6, p:7,  pts:72, form:["W","W","L","W","W"], zone:"cl" },
+          { pos:4,  team:"Atlético",    pj:35, g:20, e:8, p:7,  pts:68, form:["W","D","W","D","W"], zone:"cl" },
+          { pos:5,  team:"Athletic",    pj:35, g:17, e:9, p:9,  pts:60, form:["D","W","W","L","D"], zone:"el" },
+          { pos:6,  team:"Real Betis",  pj:35, g:14, e:8, p:13, pts:50, form:["W","L","D","D","W"], zone:"el" },
+          { pos:18, team:"Cádiz",       pj:35, g:4,  e:8, p:23, pts:20, form:["L","L","D","L","L"], zone:"rel" },
+          { pos:19, team:"Almería",     pj:35, g:4,  e:6, p:25, pts:18, form:["L","L","L","D","L"], zone:"rel" },
+          { pos:20, team:"Granada",     pj:35, g:3,  e:5, p:27, pts:14, form:["L","L","L","L","L"], zone:"rel" },
+        ]
+      },
+      ucl: {
+        name: "Champions League",
+        matches: [
+          { home:"Real Madrid", homeEmoji:"⚪", away:"Bayern",   awayEmoji:"🔴", hs:2,    as:1,    status:"FT" },
+          { home:"Man City",    homeEmoji:"🔵", away:"PSG",      awayEmoji:"🔵", hs:0,    as:1,    status:"FT" },
+          { home:"Arsenal",     homeEmoji:"🔴", away:"PSV",      awayEmoji:"🔴", hs:3,    as:0,    status:"LIVE", min:55 },
+          { home:"Barcelona",   homeEmoji:"🔵", away:"Inter",    awayEmoji:"⚫", hs:null, as:null, status:"NS",   time:"21:00" },
+          { home:"Dortmund",    homeEmoji:"🟡", away:"Atlético", awayEmoji:"🔴", hs:null, as:null, status:"NS",   time:"21:00" },
+        ],
+        table: [
+          { pos:1,  team:"Real Madrid", pj:8, g:6, e:1, p:1, pts:19, form:["W","W","W","D","W"], zone:"cl" },
+          { pos:2,  team:"Man City",    pj:8, g:5, e:2, p:1, pts:17, form:["D","W","W","W","L"], zone:"cl" },
+          { pos:3,  team:"Arsenal",     pj:8, g:5, e:1, p:2, pts:16, form:["W","W","D","W","W"], zone:"cl" },
+          { pos:4,  team:"Barcelona",   pj:8, g:4, e:2, p:2, pts:14, form:["W","D","W","L","W"], zone:"cl" },
+          { pos:5,  team:"Bayern",      pj:8, g:4, e:1, p:3, pts:13, form:["L","W","W","W","L"], zone:"el" },
+          { pos:6,  team:"PSG",         pj:8, g:3, e:2, p:3, pts:11, form:["W","L","D","W","D"], zone:"el" },
+          { pos:24, team:"RB Leipzig",  pj:8, g:1, e:1, p:6, pts:4,  form:["L","L","D","L","L"], zone:"rel" },
+        ]
+      }
+    };
+
+    /* SISTEMA DE NAVEGACIÓN POR PÁGINAS
+       showPage() muestra una sección y oculta las demás.
+       También activa/desactiva la barra de ligas. */
+    function showPage(pageId, linkEl) {
+      // Ocultar todas las páginas
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      // Mostrar la seleccionada
+      document.getElementById("page-" + pageId).classList.add("active");
+      // Actualizar clase del body para mostrar/ocultar barra de ligas
+      document.body.className = "page-" + pageId;
+      // Actualizar link activo
+      document.querySelectorAll(".nav-links a").forEach(a => a.classList.remove("active"));
+      if (linkEl) linkEl.classList.add("active");
+      // Scroll al inicio
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* RENDERIZADO DE RESULTADOS*/
+    function badge(m) {
+      if (m.status === "LIVE")
+        return `<span class="badge badge-live"><span class="blink"></span>${m.min}'</span>`;
+      if (m.status === "FT")
+        return `<span class="badge badge-ft">FT</span>`;
+      return `<span class="badge badge-ns">${m.time}</span>`;
+    }
+
+    function matchCard(m, idx) {
+      const hs = m.hs !== null ? m.hs : "–";
+      const as = m.as !== null ? m.as : "–";
+      return `
+        <div class="match-card ${m.status === "LIVE" ? "live-card" : ""}"
+             style="animation-delay:${idx * 45}ms" role="article">
+          <div class="teams-side">
+            <div class="team-logo">${m.homeEmoji}</div>
+            <span class="team-name">${m.home}</span>
+          </div>
+          <div class="score-center">
+            <div class="score-display">
+              <span>${hs}</span><span class="score-sep">:</span><span>${as}</span>
+            </div>
+            ${badge(m)}
+          </div>
+          <div class="teams-side right">
+            <div class="team-logo">${m.awayEmoji}</div>
+            <span class="team-name">${m.away}</span>
+          </div>
+        </div>`;
+    }
+
+    function matchesSection(matches) {
+      const live = matches.filter(m => m.status === "LIVE");
+      const ft   = matches.filter(m => m.status === "FT");
+      const ns   = matches.filter(m => m.status === "NS");
+      let i = 0, html = "";
+
+      const group = (label, list) => {
+        if (!list.length) return "";
+        const cards = list.map(m => matchCard(m, i++)).join("");
+        return `<div class="matches-group">
+          <div class="section-header">
+            <span class="section-label">${label}</span>
+            <span class="match-count">${list.length} partido${list.length > 1 ? "s" : ""}</span>
+          </div>${cards}</div>`;
+      };
+
+      html += group("⚡ En vivo", live);
+      html += group("✅ Finalizados", ft);
+      html += group("🕐 Próximos", ns);
+
+      if (!html) html = `<div class="empty-state">⚽<br/>No hay partidos disponibles</div>`;
+      return `<section>${html}</section>`;
+    }
+
+    function formDots(form) {
+      const map = { W:"form-w", D:"form-d", L:"form-l" };
+      return `<div class="form-dots">
+        ${form.map(f => `<span class="form-dot ${map[f]}"
+          title="${f==="W"?"Victoria":f==="D"?"Empate":"Derrota"}"></span>`).join("")}
+      </div>`;
+    }
+
+    function standings(table) {
+      const zc = { cl:"pos-cl", el:"pos-el", rel:"pos-rel", "":"" };
+      const rows = table.map(r => `
+        <tr>
+          <td><span class="pos-num ${zc[r.zone]||""}">${r.pos}</span></td>
+          <td><div class="td-team">${r.team}${formDots(r.form)}</div></td>
+          <td>${r.pj}</td><td>${r.g}</td><td>${r.e}</td><td>${r.p}</td>
+          <td class="td-pts">${r.pts}</td>
+        </tr>`).join("");
+
+      return `<div class="standings-card">
+        <div class="standings-title">Tabla de Posiciones</div>
+        <table class="standings-table">
+          <thead><tr>
+            <th>#</th><th>Equipo</th>
+            <th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div class="standings-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:var(--cl-color)"></div> Champions</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--el-color)"></div> Europa</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--rel-color)"></div> Descenso</div>
+        </div>
+      </div>`;
+    }
+
+    function statsBar(matches) {
+      const live  = matches.filter(m => m.status === "LIVE").length;
+      const ft    = matches.filter(m => m.status === "FT");
+      const goals = ft.reduce((s, m) => s + (m.hs||0) + (m.as||0), 0);
+      return `<div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">En vivo</div>
+          <div class="stat-value ${live ? "c-danger" : ""}">${live}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Goles hoy</div>
+          <div class="stat-value c-accent">${goals}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Finalizados</div>
+          <div class="stat-value">${ft.length}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Por jugar</div>
+          <div class="stat-value">${matches.filter(m=>m.status==="NS").length}</div>
+        </div>
+      </div>`;
+    }
+
+    function renderResults(leagueId) {
+      const league = DB[leagueId];
+      const live = league.matches.filter(m => m.status === "LIVE").length;
+      document.getElementById("live-count").textContent = live;
+      document.getElementById("main-content").innerHTML = `
+        <div>${matchesSection(league.matches)}</div>
+        <aside class="sidebar">
+          ${statsBar(league.matches)}
+          ${standings(league.table)}
+        </aside>`;
+    }
+
+    function switchLeague(id, btn) {
+      document.querySelectorAll(".league-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderResults(id);
+    }
+    renderResults("pl");
+  </script>
+</body>
+</html>
