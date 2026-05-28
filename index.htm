@@ -7,12 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="GolazoDi.css">
+  <link rel="stylesheet" href="GolazoDi.css" />
 </head>
 
 <body class="page-resultados">
 
-  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+  <!-- ══════════════════════════════════════════════════
+       TOPBAR
+  ═══════════════════════════════════════════════════ -->
   <div class="topbar">
     <div class="topbar-inner">
 
@@ -20,15 +22,20 @@
         <div class="logo-dot"></div>
         GOLAZO
       </div>
-      <div>
-        Diego Andre Chupina Méndez
-      </div>
+
+      <div class="header-name">Diego Andre Chupina Méndez</div>
 
       <ul class="nav-links">
-        <li><a href="#" class="active" onclick="showPage('resultados', this)">⚽ Resultados</a></li>
-        <li><a href="#" onclick="showPage('quienes-somos', this)">👤 Quiénes Somos</a></li>
-        <li><a href="#" onclick="showPage('mision', this)">🎯 Misión &amp; Visión</a></li>
-        <li><a href="#" onclick="showPage('contacto', this)">📬 Contáctenos</a></li>
+        <!-- Resultados: muestra la página de resultados y hace scroll al top -->
+        <li><a href="#" class="active" onclick="navTo('resultados', null, this)">⚽ Resultados</a></li>
+        <!-- Conócenos: muestra la página info y hace scroll a quiénes somos -->
+        <li><a href="#" onclick="navTo('info', 'sec-quienes', this)">👤 Conócenos</a></li>
+        <!-- Proveedores: muestra la página info y hace scroll a proveedores -->
+        <li><a href="#" onclick="navTo('info', 'sec-proveedores', this)">🔗 Proveedores</a></li>
+        <!-- Clientes: muestra la página info y hace scroll a clientes -->
+        <li><a href="#" onclick="navTo('info', 'sec-clientes', this)">🎯 Clientes</a></li>
+        <!-- Contáctenos: muestra la página info y hace scroll a contacto -->
+        <li><a href="#" onclick="navTo('info', 'sec-contacto', this)">📬 Contáctenos</a></li>
       </ul>
 
       <div class="live-pill">
@@ -39,7 +46,7 @@
     </div>
   </div>
 
-  <!-- Barra de ligas -->
+  <!-- Barra de ligas — solo aparece en página Resultados -->
   <nav class="league-nav" aria-label="Ligas">
     <div class="league-nav-inner">
       <button class="league-btn active" onclick="switchLeague('pl', this)">
@@ -55,160 +62,178 @@
   </nav>
 
 
-  <!--PÁGINA 1: RESULTADOS -->
+  <!-- ══════════════════════════════════════════════════
+       PÁGINA 1: RESULTADOS
+  ═══════════════════════════════════════════════════ -->
   <section id="page-resultados" class="page active">
     <main class="results-layout" id="main-content"></main>
   </section>
 
 
-  <!--PÁGINA 2: QUIÉNES SOMOS-->
-  <section id="page-quienes-somos" class="page">
-    <div class="about-page">
+  <!-- ══════════════════════════════════════════════════
+       PÁGINA 2: CONÓCENOS (scroll continuo)
+       Quiénes Somos → Misión y Visión → Proveedores → Clientes
+  ═══════════════════════════════════════════════════ -->
+  <section id="page-info" class="page">
+    <div class="scroll-page">
 
-      <div>
+      <!-- SECCIÓN A: QUIÉNES SOMOS -->
+      <div class="scroll-section" id="sec-quienes">
         <p class="page-eyebrow">El proyecto</p>
-        <h1 class="page-title">Quiénes <span>Somos</span></h1>
+        <h2 class="page-title">Quiénes <span>Somos</span></h2>
         <p class="page-subtitle">
-          Conoce al desarrollador detrás de <strong>GOLAZO</strong>, la plataforma
-          de resultados y noticias de fútbol creada como proyecto académico.
+          Conoce al desarrollador detrás de <strong>GOLAZO</strong>,
+          la plataforma de resultados y noticias de fútbol creada como proyecto académico.
         </p>
-      </div>
 
-      <div class="about-grid">
+        <div class="about-grid">
+          <div class="student-card">
+            <img
+              src="foto.jpg"
+              alt="Diego Andre Chupina Méndez"
+              style="width:100%; height:300px; object-fit:cover;"
+              onerror="this.outerHTML='<div class=\'student-photo-placeholder\'>🧑‍💻</div>'"
+            />
+            <div class="student-info">
+              <div class="student-name">Diego Andre Chupina Méndez</div>
+              <div class="student-role">Desarrollador Web · Proyecto Escolar 2025</div>
+              <div class="student-tags">
+                <span class="tag">📍 Guatemala</span>
+                <span class="tag">🎓 UMG</span>
+                <span class="tag">⚽ Fútbol</span>
+                <span class="tag">💻 HTML · CSS · JS</span>
+              </div>
+            </div>
+          </div>
 
-        <!-- Tarjeta del alumno -->
-        <div class="student-card">
-          <img 
-          src="foto.jpg"
-          alt="Diego Andre Chupina Méndez"
-          style="width:100%; height:300px; object-fit:cover;"
-          />
-          <div class="student-info">
-            <div class="student-name">Diego Andre Chupina Méndez</div>
-            <div class="student-tags">
-              <span class="tag">📍 Guatemala</span>
-              <span class="tag">🎓 UMG</span>
-              <span class="tag">⚽ Fútbol</span>
-              <span class="tag">💻 HTML · CSS · JS</span>
+          <div class="about-content">
+            <div class="info-card">
+              <div class="info-card-title">📋 Sobre el proyecto</div>
+              <p>
+                <strong>GOLAZO</strong> es una plataforma web de resultados deportivos
+                desarrollada como proyecto de curso en la
+                <strong>Universidad Mariano Gálvez de Guatemala</strong>.
+                El objetivo es ofrecer a los aficionados del fútbol una experiencia
+                moderna, rápida y accesible para seguir sus ligas y equipos favoritos.
+              </p>
+            </div>
+            <div class="info-card">
+              <div class="info-card-title">🛠️ Tecnologías utilizadas</div>
+              <p>
+                Construida con <strong>HTML5</strong> para la estructura,
+                <strong>CSS3</strong> externo (<em>GolazoDi.css</em>) con variables
+                personalizadas y diseño responsivo, y <strong>JavaScript vanilla</strong>
+                para la lógica dinámica.
+              </p>
+            </div>
+            <div class="info-card">
+              <div class="info-card-title">🎓 Institución educativa</div>
+              <p>
+                Proyecto desarrollado en la
+                <strong>Universidad Mariano Gálvez de Guatemala (UMG)</strong>,
+                institución de educación superior privada fundada en 1966, ubicada en
+                la <strong>3a. Avenida 9-00, Zona 2</strong>, Ciudad de Guatemala.
+              </p>
             </div>
           </div>
         </div>
-
-        <!-- Información del proyecto -->
-        <div class="about-content">
-
-          <div class="info-card">
-            <div class="info-card-title">📋 Sobre el proyecto</div>
-            <p>
-              <strong>GOLAZO</strong> es una plataforma web de resultados deportivos desarrollada
-              como proyecto de curso en la <strong>Universidad Mariano Gálvez de Guatemala</strong>.
-              El objetivo es ofrecer a los aficionados del fútbol una experiencia moderna,
-              rápida y accesible para seguir sus ligas y equipos favoritos.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <div class="info-card-title">🛠️ Tecnologías utilizadas</div>
-            <p>
-              Esta página fue construida usando <strong>HTML5</strong> para la estructura,
-              <strong>CSS3</strong> con variables personalizadas para el diseño responsivo,
-              y <strong>JavaScript vanilla</strong> para la lógica dinámica. El patrón
-              de desarrollo sigue el principio de <em>"datos → render"</em>, donde toda
-              la información se almacena en objetos JS y se transforma en HTML automáticamente.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <div class="info-card-title">🎓 Institución educativa</div>
-            <p>
-              Proyecto desarrollado en la <strong>Universidad Mariano Gálvez de Guatemala (UMG)</strong>,
-              una de las instituciones de educación superior más reconocidas del país,
-              fundada en 1966 y ubicada en la <strong>3a. Avenida 9-00, Zona 2</strong>,
-              Ciudad de Guatemala.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      </div><!-- /QUIÉNES SOMOS -->
 
 
-  <!--PÁGINA 3: MISIÓN Y VISIÓN -->
-  <section id="page-mision" class="page">
-    <div class="mv-page">
-
-      <div>
+      <!-- SECCIÓN B: MISIÓN Y VISIÓN -->
+      <div class="scroll-section" id="sec-mision">
         <p class="page-eyebrow">Nuestros fundamentos</p>
-        <h1 class="page-title">Misión <span>&amp;</span> Visión</h1>
+        <h2 class="page-title">Misión <span>&amp;</span> Visión</h2>
         <p class="page-subtitle">
           Los principios que guían el desarrollo y crecimiento de la plataforma
           <strong>GOLAZO</strong>.
         </p>
-      </div>
 
-      <div class="mv-cards">
-
-        <!-- MISIÓN -->
-        <div class="mv-card">
-          <div class="mv-icon-wrap">🎯</div>
-          <div class="mv-card-title">Misión</div>
-          <p class="mv-card-text">
-            Brindar a los aficionados del fútbol información
-            <em>actualizada, clara y rápida</em> sobre resultados, estadísticas
-            y noticias deportivas, ofreciendo una experiencia moderna y accesible
-            para todos los usuarios.
-          </p>
+        <div class="mv-cards">
+          <div class="mv-card">
+            <div class="mv-icon-wrap">🎯</div>
+            <div class="mv-card-title">Misión</div>
+            <p class="mv-card-text">
+              Brindar a los aficionados del fútbol información
+              <em>actualizada, clara y rápida</em> sobre resultados, estadísticas
+              y noticias deportivas, ofreciendo una experiencia moderna y accesible
+              para todos los usuarios.
+            </p>
+          </div>
+          <div class="mv-card vision-card">
+            <div class="mv-icon-wrap">🔭</div>
+            <div class="mv-card-title">Visión</div>
+            <p class="mv-card-text">
+              Convertirse en una plataforma
+              <em>reconocida por los amantes del fútbol</em>,
+              destacando por su innovación, diseño atractivo y contenido
+              confiable sobre el mundo deportivo.
+            </p>
+          </div>
         </div>
 
-        <!-- VISIÓN -->
-        <div class="mv-card vision-card">
-          <div class="mv-icon-wrap">🔭</div>
-          <div class="mv-card-title">Visión</div>
-          <p class="mv-card-text">
-            Convertirse en una plataforma <em>reconocida por los amantes del fútbol</em>,
-            destacando por su innovación, diseño atractivo y contenido confiable
-            sobre el mundo deportivo.
-          </p>
+        <div class="values-section">
+          <div class="values-title">Nuestros valores</div>
+          <div class="values-grid">
+            <div class="value-chip"><span class="value-emoji">⚡</span><span class="value-name">Rapidez</span></div>
+            <div class="value-chip"><span class="value-emoji">✅</span><span class="value-name">Confiabilidad</span></div>
+            <div class="value-chip"><span class="value-emoji">🎨</span><span class="value-name">Diseño</span></div>
+            <div class="value-chip"><span class="value-emoji">🌐</span><span class="value-name">Accesibilidad</span></div>
+            <div class="value-chip"><span class="value-emoji">🔒</span><span class="value-name">Seguridad</span></div>
+            <div class="value-chip"><span class="value-emoji">💡</span><span class="value-name">Innovación</span></div>
+          </div>
         </div>
+      </div><!-- /MISIÓN Y VISIÓN -->
 
-      </div>
 
-      <!-- Valores -->
-      <div class="values-section">
-        <div class="values-title">Nuestros valores</div>
-        <div class="values-grid">
-          <div class="value-chip"><span class="value-emoji">⚡</span><span class="value-name">Rapidez</span></div>
-          <div class="value-chip"><span class="value-emoji">✅</span><span class="value-name">Confiabilidad</span></div>
-          <div class="value-chip"><span class="value-emoji">🎨</span><span class="value-name">Diseño</span></div>
-          <div class="value-chip"><span class="value-emoji">🌐</span><span class="value-name">Accesibilidad</span></div>
-          <div class="value-chip"><span class="value-emoji">🔒</span><span class="value-name">Seguridad</span></div>
-          <div class="value-chip"><span class="value-emoji">💡</span><span class="value-name">Innovación</span></div>
+      <!-- SECCIÓN C: PROVEEDORES -->
+      <div class="scroll-section" id="sec-proveedores">
+        <p class="page-eyebrow">Fuentes de información</p>
+        <h2 class="page-title">Nuestros <span>Proveedores</span></h2>
+        <p class="page-subtitle">
+          Los datos de partidos, estadísticas y noticias de GOLAZO provienen
+          de estas fuentes y plataformas oficiales.
+        </p>
+
+        <div class="suppliers-grid" id="suppliers-grid"></div>
+
+        <div class="source-note">
+          <strong>📌 Nota sobre las fuentes:</strong> Los datos mostrados en esta
+          plataforma son obtenidos de fuentes públicas como
+          <a href="https://www.football-data.org" target="_blank" rel="noopener">football-data.org</a>,
+          <a href="https://www.sofascore.com" target="_blank" rel="noopener">SofaScore</a> y
+          <a href="https://www.transfermarkt.com" target="_blank" rel="noopener">Transfermarkt</a>.
+          Este proyecto es de carácter <strong>académico y educativo</strong>.
         </div>
-      </div>
+      </div><!-- /PROVEEDORES -->
 
-    </div>
-  </section>
 
-  <!--PÁGINA 4: CONTÁCTENOS -->
-  <section id="page-contacto" class="page">
-    <div class="contact-page">
+      <!-- SECCIÓN D: CLIENTES -->
+      <div class="scroll-section" id="sec-clientes">
+        <p class="page-eyebrow">Nuestra audiencia</p>
+        <h2 class="page-title">Nuestros <span>Clientes</span></h2>
+        <p class="page-subtitle">
+          Los usuarios y organizaciones que confían en GOLAZO para
+          mantenerse al día con el fútbol.
+        </p>
 
-      <div>
+        <div class="clients-layout" id="clients-layout"></div>
+      </div><!-- /CLIENTES -->
+
+      <!-- SECCIÓN E: CONTÁCTENOS -->
+      <div class="scroll-section" id="sec-contacto">
+
         <p class="page-eyebrow">Estamos aquí</p>
-        <h1 class="page-title">Contác<span>tenos</span></h1>
+        <h2 class="page-title">Contác<span>tenos</span></h2>
         <p class="page-subtitle">
           Síguenos en las redes sociales oficiales de la
           <strong>Universidad Mariano Gálvez de Guatemala</strong>
           o escríbenos directamente.
         </p>
-      </div>
 
       <div class="contact-grid">
 
-        <!-- Columna izquierda: datos + redes -->
         <div class="contact-info">
-
-          <!-- Datos de la UMG -->
           <div class="contact-item">
             <div class="contact-icon-box">📍</div>
             <div>
@@ -225,58 +250,51 @@
             <div>
               <div class="contact-label">Sitio web oficial</div>
               <div class="contact-value">
-                <a href="https://www.umg.edu.gt" target="_blank" rel="noopener">www.umg.edu.gt</a>
+                <a href="https://www.umg.edu.gt" target="_blank" rel="noopener">
+                  www.umg.edu.gt
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- Redes sociales oficiales UMG -->
           <div>
             <div class="social-title">Redes sociales oficiales — UMG</div>
             <div class="social-grid">
 
               <a class="social-card"
                  href="https://www.facebook.com/u.marianogalvez/"
-                 target="_blank" rel="noopener"
-                 title="Facebook oficial de la Universidad Mariano Gálvez">
+                 target="_blank" rel="noopener">
                 <div class="social-logo" style="background:#1877f2">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                      <!-- SVG del icono oficial de Instagram.
-                          lo utilize para mostrar el logo de Instagram
-                          dentro de la sección de redes sociales.-->
                   </svg>
                 </div>
                 <div>
                   <div class="social-name">Facebook</div>
                   <div class="social-handle">u.marianogalvez</div>
                 </div>
+                <div class="social-followers">272K</div>
               </a>
 
               <a class="social-card"
                  href="https://www.instagram.com/marianogalvez/"
-                 target="_blank" rel="noopener"
-                 title="Instagram oficial de la Universidad Mariano Gálvez">
+                 target="_blank" rel="noopener">
                 <div class="social-logo" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    <!-- SVG del icono oficial de Facebook.
-                    lo utilize para mostrar el logo de Facebook
-                    dentro de la sección de redes sociales.-->
                   </svg>
                 </div>
                 <div>
                   <div class="social-name">Instagram</div>
                   <div class="social-handle">@marianogalvez</div>
                 </div>
+                <div class="social-followers">30K</div>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Columna derecha: mapa-->
         <div class="contact-right">
-          <!-- Mapa de la UMG -->
           <div class="map-wrap">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.6!2d-90.5133!3d14.6589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3b8e4a4b4c5%3A0x1!2sUniversidad+Mariano+G%C3%A1lvez+de+Guatemala!5e0!3m2!1ses!2sgt!4v1"
@@ -287,19 +305,28 @@
             </iframe>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
+      </div><!-- /CONTÁCTENOS -->
+
+    </div><!-- /.scroll-page -->
+  </section><!-- /page-info -->
+
+
+  <!-- FOOTER -->
   <footer>
-    <strong>GOLAZO</strong>
+    <strong>GOLAZO</strong> ·
     <strong>Diego Andre Chupina Méndez</strong> ·
-    <a href="https://www.umg.edu.gt" target="_blank" rel="noopener">Universidad Mariano Gálvez de Guatemala</a>
+    <a href="https://www.umg.edu.gt" target="_blank" rel="noopener">
+      Universidad Mariano Gálvez de Guatemala
+    </a>
     <br/>
-     Y conoceréis la verdad, y la verdad os hará libres
+    <em>"Y conoceréis la verdad, y la verdad os hará libres"</em> · Juan 8:32
   </footer>
+
+
   <script>
 
+    /*DATOS DE PARTIDOS */
     const DB = {
       pl: {
         name: "Premier League",
@@ -366,24 +393,112 @@
       }
     };
 
-    /* SISTEMA DE NAVEGACIÓN POR PÁGINAS
-       showPage() muestra una sección y oculta las demás.
-       También activa/desactiva la barra de ligas. */
-    function showPage(pageId, linkEl) {
-      // Ocultar todas las páginas
-      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-      // Mostrar la seleccionada
-      document.getElementById("page-" + pageId).classList.add("active");
-      // Actualizar clase del body para mostrar/ocultar barra de ligas
-      document.body.className = "page-" + pageId;
-      // Actualizar link activo
+    /* DATOS: PROVEEDORES*/
+    const SUPPLIERS = [
+      { nombre:"Football-Data.org", emoji:"⚽", categoria:"API de resultados y estadísticas",    fuente:"football-data.org", url:"https://www.football-data.org", bg:"#1a2e1a" },
+      { nombre:"SofaScore",         emoji:"📊", categoria:"Estadísticas y datos en vivo",         fuente:"sofascore.com",      url:"https://www.sofascore.com",      bg:"#1a1a2e" },
+      { nombre:"Transfermarkt",             emoji:"📈", categoria:"Estadísticas avanzadas de fútbol",     fuente:"transfermarkt.com",          url:"https://www.transfermarkt.com",              bg:"#2e1a1a" },
+      { nombre:"UEFA.com",          emoji:"⭐", categoria:"Datos oficiales Champions League",     fuente:"uefa.com",           url:"https://www.uefa.com",           bg:"#1a2030" },
+      { nombre:"Premier League",    emoji:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", categoria:"Datos oficiales Premier League",    fuente:"premierleague.com",  url:"https://www.premierleague.com",  bg:"#2e1a2e" },
+      { nombre:"La Liga",           emoji:"🇪🇸", categoria:"Datos oficiales La Liga española",   fuente:"laliga.com",         url:"https://www.laliga.com",         bg:"#2e2a1a" },
+    ];
+
+    /* DATOS: CLIENTES */
+    const CLIENTS = [
+      { nombre:"Aficionados casual",        icono:"⚽", detalle:"Usuarios que siguen resultados del día",       tipo:"persona",  color:"#1565c0" },
+      { nombre:"Periodistas deportivos",    icono:"📰", detalle:"Consultan estadísticas para sus artículos",   tipo:"empresa",  color:"#2e7d32" },
+      { nombre:"Estudiantes universitarios",icono:"🎓", detalle:"Usan la plataforma como referencia académica", tipo:"persona",  color:"#4527a0" },
+      { nombre:"Fanáticos de la Champions", icono:"⭐", detalle:"Siguen cada partido de la UCL",               tipo:"premium",  color:"#e65100" },
+      { nombre:"Comunicadores sociales",    icono:"📱", detalle:"Comparten resultados en redes sociales",      tipo:"empresa",  color:"#00695c" },
+      { nombre:"Apostadores deportivos",    icono:"🎯", detalle:"Consultan estadísticas previas al partido",   tipo:"premium",  color:"#bf360c" },
+      { nombre:"Entrenadores amateurs",     icono:"🏆", detalle:"Analizan tendencias de equipos",              tipo:"persona",  color:"#1565c0" },
+      { nombre:"UMG - Proyecto académico",  icono:"🏛️", detalle:"Institución evaluadora del proyecto",        tipo:"empresa",  color:"#1b5e20" },
+    ];
+
+    /* RENDER: PROVEEDORES */
+    document.getElementById("suppliers-grid").innerHTML = SUPPLIERS.map(s => `
+      <a class="supplier-card" href="${s.url}" target="_blank" rel="noopener" style="text-decoration:none">
+        <div class="supplier-logo" style="background:${s.bg}">${s.emoji}</div>
+        <div class="supplier-name">${s.nombre}</div>
+        <div class="supplier-category">${s.categoria}</div>
+        <span class="supplier-source">🔗 ${s.fuente}</span>
+      </a>
+    `).join("");
+
+    /*RENDER: CLIENTES*/
+    const tipoLabel = { empresa:"Empresa", persona:"Persona", premium:"Premium" };
+    const tipoClass = { empresa:"type-empresa", persona:"type-persona", premium:"type-premium" };
+    const totalEmp  = CLIENTS.filter(c => c.tipo === "empresa").length;
+    const totalPers = CLIENTS.filter(c => c.tipo === "persona").length;
+    const totalPrem = CLIENTS.filter(c => c.tipo === "premium").length;
+
+    document.getElementById("clients-layout").innerHTML = `
+      <div class="client-stats">
+        <div class="cstat-card">
+          <div class="cstat-number">${CLIENTS.length}</div>
+          <div class="cstat-label">Tipos de usuarios</div>
+        </div>
+        <div class="cstat-card">
+          <div class="cstat-number" style="color:var(--accent)">${totalEmp}</div>
+          <div class="cstat-label">Empresas / Org.</div>
+        </div>
+        <div class="cstat-card">
+          <div class="cstat-number" style="color:var(--accent2)">${totalPers}</div>
+          <div class="cstat-label">Usuarios persona</div>
+        </div>
+        <div class="cstat-card">
+          <div class="cstat-number" style="color:var(--gold)">${totalPrem}</div>
+          <div class="cstat-label">Usuarios premium</div>
+        </div>
+      </div>
+      <div class="clients-list">
+        ${CLIENTS.map(c => `
+          <div class="client-row">
+            <div class="client-avatar" style="background:${c.color}">${c.icono}</div>
+            <div class="client-info">
+              <div class="client-name">${c.nombre}</div>
+              <div class="client-detail">${c.detalle}</div>
+            </div>
+            <span class="client-type ${tipoClass[c.tipo]}">${tipoLabel[c.tipo]}</span>
+          </div>
+        `).join("")}
+      </div>`;
+
+    function navTo(pageId, sectionId, linkEl) {
+      // Actualizar link activo en el nav
       document.querySelectorAll(".nav-links a").forEach(a => a.classList.remove("active"));
       if (linkEl) linkEl.classList.add("active");
-      // Scroll al inicio
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      const targetPage = document.getElementById("page-" + pageId);
+      const currentlyActive = targetPage.classList.contains("active");
+
+      if (!currentlyActive) {
+        // Ocultar todas las páginas y mostrar la destino
+        document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+        targetPage.classList.add("active");
+        // Actualizar clase del body (controla la barra de ligas)
+        document.body.className = "page-" + pageId;
+      }
+
+      // Scroll a la sección o al top
+      if (sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          // Delay mínimo para que el browser pinte la página antes del scroll
+          setTimeout(() => {
+            const topbarH = document.querySelector(".topbar").offsetHeight;
+            const y = section.getBoundingClientRect().top + window.scrollY - topbarH - 16;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }, currentlyActive ? 0 : 50);
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
 
-    /* RENDERIZADO DE RESULTADOS*/
+    /* ════════════════════════════════════════════════
+       RENDER: RESULTADOS
+    ════════════════════════════════════════════════ */
     function badge(m) {
       if (m.status === "LIVE")
         return `<span class="badge badge-live"><span class="blink"></span>${m.min}'</span>`;
@@ -467,9 +582,9 @@
           <tbody>${rows}</tbody>
         </table>
         <div class="standings-legend">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--cl-color)"></div> Champions</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--el-color)"></div> Europa</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--rel-color)"></div> Descenso</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--cl-color)"></div>Champions</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--el-color)"></div>Europa</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--rel-color)"></div>Descenso</div>
         </div>
       </div>`;
     }
@@ -515,7 +630,10 @@
       btn.classList.add("active");
       renderResults(id);
     }
+
+    /* ── Arranque ── */
     renderResults("pl");
+
   </script>
 </body>
 </html>
